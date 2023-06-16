@@ -14,6 +14,7 @@ class Table extends Component {
     this.addRow = this.addRow.bind(this);
   }
 
+  // As a user I can, add rows to the grid
   addRow = () => {
     const arr = [];
     for (let i = 0; i < this.state.columnCount; i++) {
@@ -27,6 +28,7 @@ class Table extends Component {
     console.log("Number of rows: " + n);
   };
 
+  // As a user I can, add columns to the grid
   addColumn = () => {
     this.setState((prevState) => ({
       grid: prevState.grid.map((row) => [...row, 1]),
@@ -36,6 +38,7 @@ class Table extends Component {
     console.log("Number of columns: " + n);
   };
 
+  // As a user I can, remove columns from the grid
   removeColumn = () => {
     this.setState(() => ({
       grid: this.state.grid.map((row) => {
@@ -47,6 +50,7 @@ class Table extends Component {
     console.log("Number of columns: " + n);
   };
 
+  // As a user I can, remove rows from the grid
   removeRow = () => {
     this.setState(() => ({
       grid: this.state.grid.slice(0, -1),
@@ -56,16 +60,23 @@ class Table extends Component {
     console.log("Number of rows: " + n);
   };
 
+  // As a user I can, select a color from a dropdown menu of colors
   selectColor = (event) => {
     this.setState({
       color: event.target.value,
     });
   };
 
+  // As a user I can, click on a single cell, changing its color to the currently selected color
   clickCell = (event) => {
     event.target.style.background = this.state.color;
   };
 
+  /**
+   * As a user I can,
+   * click and hold (mouseover) from a single cell (start) to a different cell (end)
+   * such that all affected/hovered-over cells from start to end change to the currently selected color
+   */
   mouseHover = (event) => {
     if (this.state.mouseIsDown) this.clickCell(event);
     console.log("Mouse is hovering over");
