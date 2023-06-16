@@ -3,3 +3,12 @@ tr{
   border: 6px solid black;
 }
 
+.cell {
+  border: 2px solid black;
+  padding: 20px;
+}
+
+.Row {
+  display: flex;
+  justify-content: flex-start;
+}
